@@ -1,0 +1,31 @@
+scalar DateTime
+
+type Query {
+  messages: [Message!]
+  replies: [Reply!]
+}
+
+type Mutation {
+  postMessage(body: String!): Message
+  postReply(messageId: ID!, body: String!): Reply
+}
+
+type Message {
+  id: ID!
+  body: String!
+  likes: Int!
+  dislikes: Int!
+  createdAt: DateTime!
+
+  replies: [Reply!]
+}
+
+type Reply {
+  id: ID!
+  body: String!
+  likes: Int!
+  dislikes: Int!
+  createdAt: DateTime!
+
+  message: Message # If we make `message` required, generated types will conflict with prisma's
+}
