@@ -1,0 +1,28 @@
+.message {
+  padding: 0.5rem;
+  display: grid;
+  grid:
+    'name ...' auto
+    'body body' 1fr
+    '... time' auto /
+    1fr auto;
+  gap: 0.25rem;
+
+  background: #555;
+
+  & + & {
+    margin-top: 0.5rem;
+  }
+
+  &__name {
+    grid-area: name;
+  }
+
+  &__body {
+    grid-area: body;
+  }
+
+  &__time {
+    grid-area: time;
+  }
+}

@@ -1,0 +1,25 @@
+.chat {
+  height: 100%;
+
+  display: grid;
+  grid:
+    'header' auto
+    'messages' 1fr
+    'message-input' auto /
+    100%;
+
+  color: #fff;
+  background: #333;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+
+  &__header {
+    height: 3rem;
+
+    padding: 0 3rem;
+    display: flex;
+    align-items: center;
+
+    background: #444;
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.2);
+  }
+}

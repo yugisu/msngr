@@ -11,6 +11,5 @@
     "jsx": "preserve",
     "baseUrl": "./src"
   },
-  "include": ["src"],
-  "exclude": ["node_modules", "src/server"]
+  "include": ["src/client", "src/shared"]
 }
