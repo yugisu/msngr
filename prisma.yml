@@ -1,0 +1,6 @@
+endpoint: https://eu1.prisma.sh/dmytrii-puzyr/bsa-graphql-msngr/dev
+datamodel: datamodel.prisma
+
+generate:
+  - generator: typescript-client
+    output: ./src/server/generated/prisma-client/

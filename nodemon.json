@@ -1,0 +1,5 @@
+{
+  "watch": ["src/server", "src/shared"],
+  "ext": "ts, prisma, graphql",
+  "exec": "ts-node --project ./src/server/tsconfig.json -r tsconfig-paths/register src/server/index.ts"
+}
