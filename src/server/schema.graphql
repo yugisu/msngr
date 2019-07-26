@@ -13,6 +13,7 @@ type Messages {
 type Mutation {
   postMessage(body: String!): Message
   postReply(messageId: ID!, body: String!): Reply
+  updateMessage(messageId: ID!): Message
 }
 
 type Subscription {

@@ -1,8 +1,7 @@
 .messages {
-  height: 33.6rem;
-  padding: 2rem 0.5rem 1rem;
+  padding: 1rem 0.5rem;
 
-  overflow-y: auto;
+  overflow: hidden auto;
 
   > div {
     display: flex;

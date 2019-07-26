@@ -12,6 +12,10 @@
   &-body {
     width: 100%;
 
-    padding: 2rem 15vw 4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 2rem 20vw;
   }
 }

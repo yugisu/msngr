@@ -20,7 +20,11 @@ export function Messages({ messages, count, onLoadMore }: Props) {
         hasMore={messages.length < count}
         loadMore={onLoadMore}
         threshold={300}
-        loader={<div key='m-loader'>Fetching...</div>}
+        loader={
+          <div className='message' key='m-loader'>
+            Fetching...
+          </div>
+        }
         useWindow={false}
       >
         {messages && messages.map((m) => <Message message={m} key={m.id} />)}

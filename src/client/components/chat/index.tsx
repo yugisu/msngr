@@ -26,7 +26,11 @@ export function Chat() {
       </div>
       <MessageInput />
       {loading ? (
-        <div className='messages'>Loading...</div>
+        <div className='messages'>
+          <div>
+            <div className='message'>Loading...</div>
+          </div>
+        </div>
       ) : (
         data &&
         data.messages.items && (

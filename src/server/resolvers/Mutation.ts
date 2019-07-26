@@ -19,4 +19,13 @@ export const Mutation: Res['Mutation'] = {
       message: { connect: { id: args.messageId } },
     });
   },
+
+  updateMessage: async (_, args, { prisma }) => {
+    const mes = await prisma.updateMessage({
+      where: { id: args.messageId },
+      data: {},
+    });
+
+    return mes;
+  },
 };

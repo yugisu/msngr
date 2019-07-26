@@ -20,8 +20,26 @@ export function useMessages(args?: Args) {
       if (!subscriptionData.data) return prev;
       const { message } = subscriptionData.data;
 
-      const existsIdx = prev.messages.items!.findIndex((m) => m.id === message.id);
-      if (existsIdx > -1) return prev;
+      const existsIdx = prev.messages.items!.findIndex((m) => {
+        if (m.id === message.id) {
+          if (m.replies && message.replies) {
+            return m.replies.length === message.replies.length;
+          }
+
+          return m.replies === message.replies;
+        }
+
+        return m.id === message.id;
+      });
+      if (existsIdx > -1)
+        return {
+          messages: {
+            ...prev.messages,
+            items: prev.messages.items!.map((m) =>
+              m.id === message.id ? { ...m, ...message } : m
+            ),
+          },
+        };
 
       if (prev.messages.items) {
         return {

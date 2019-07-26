@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Oswald:400,700|Permanent+Marker|Roboto:400,700&display=swap&subset=cyrillic');
+@import url('https://fonts.googleapis.com/css?family=Permanent+Marker|Roboto:400,700&display=swap&subset=cyrillic');
 
 html {
   font-family: 'Roboto', sans-serif;
@@ -59,6 +59,6 @@ img {
 }
 
 ::selection {
-  text-shadow: 2px 2px violet, -2px -2px cyan;
-  background-color: transparent;
+  text-shadow: 1px 1px violet, -1px -1px cyan;
+  background-color: rgba(255, 255, 255, 0.1);
 }
