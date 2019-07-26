@@ -4,8 +4,8 @@
   display: grid;
   grid:
     'header' auto
-    'messages' 1fr
-    'message-input' auto /
+    'message-input' auto
+    'messages' 1fr /
     100%;
 
   color: #fff;
@@ -13,9 +13,10 @@
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
 
   &__header {
+    z-index: 1000;
     height: 3rem;
 
-    padding: 0 3rem;
+    padding: 0 2rem;
     display: flex;
     align-items: center;
 

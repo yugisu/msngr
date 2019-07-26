@@ -1,8 +1,13 @@
 scalar DateTime
 
 type Query {
-  messages: [Message!]
+  messages(filter: String, first: Int, after: ID): Messages!
   replies: [Reply!]
+}
+
+type Messages {
+  items: [Message!]
+  count: Int!
 }
 
 type Mutation {

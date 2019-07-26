@@ -57,3 +57,8 @@ img {
 ::-webkit-scrollbar-track {
   background: transparent;
 }
+
+::selection {
+  text-shadow: 2px 2px violet, -2px -2px cyan;
+  background-color: transparent;
+}

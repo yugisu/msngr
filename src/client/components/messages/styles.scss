@@ -1,6 +1,12 @@
 .messages {
   height: 33.6rem;
-  padding: 1.5rem;
+  padding: 2rem 0.5rem 1rem;
 
   overflow-y: auto;
+
+  > div {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+  }
 }

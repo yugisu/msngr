@@ -1,17 +1,21 @@
 .message {
+  flex: 0 1;
+  width: fit-content;
+
   padding: 0.5rem;
   display: grid;
   grid:
     'name ...' auto
-    'body body' 1fr
-    '... time' auto /
+    'body time' 1fr /
     1fr auto;
-  gap: 0.25rem;
+  row-gap: 0.25rem;
+  column-gap: 0.5rem;
 
-  background: #555;
+  background: #444;
+  border-radius: 0.5rem 0.5rem 0 0.5rem;
 
   & + & {
-    margin-top: 0.5rem;
+    margin-top: 0.75rem;
   }
 
   &__name {
@@ -20,9 +24,17 @@
 
   &__body {
     grid-area: body;
+
+    max-width: 55vw;
+
+    word-wrap: break-word;
+    overflow-wrap: break-word;
   }
 
   &__time {
     grid-area: time;
+    align-self: end;
+
+    opacity: 0.3;
   }
 }
