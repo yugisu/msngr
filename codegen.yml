@@ -1,6 +1,17 @@
 schema: ./src/server/schema.graphql
+overwrite: true
 generates:
-  ./src/shared/ql-types.d.ts:
+  ./src/server/generated/ql-types.d.ts:
     plugins:
       - typescript
+      - typescript-operations
       - typescript-resolvers
+
+  ./src/client/generated/ql-types.tsx:
+    plugins:
+      - typescript
+      - typescript-operations
+      - typescript-react-apollo
+    config:
+      typesPrefix: I
+      enumsAsTypes: true

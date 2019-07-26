@@ -1,0 +1,20 @@
+type Message {
+  id: ID! @id
+  body: String!
+  likes: Int! @default(value: 0)
+  dislikes: Int! @default(value: 0)
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
+
+  replies: [Reply!] @relation(name: "MessageReplies", onDelete: CASCADE)
+}
+
+type Reply {  
+  id: ID! @id
+  body: String!
+  likes: Int! @default(value: 0)
+  dislikes: Int! @default(value: 0)
+  createdAt: DateTime! @createdAt
+
+  message: Message! @relation(name: "MessageReplies")
+}

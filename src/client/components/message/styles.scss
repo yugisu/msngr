@@ -1,0 +1,166 @@
+.message {
+  position: relative;
+  width: fit-content;
+
+  padding: 0.5rem;
+  display: grid;
+  grid:
+    'name ...' auto
+    'body time' 1fr /
+    1fr auto;
+  row-gap: 0.25rem;
+  column-gap: 0.5rem;
+
+  background: #444;
+  border-radius: 0.5rem 0.5rem 0 0.5rem;
+
+  animation: appear 0.5s forwards;
+
+  & + & {
+    margin-top: 0.75rem;
+  }
+
+  &__name {
+    grid-area: name;
+  }
+
+  &__body {
+    grid-area: body;
+
+    max-width: 42vw;
+
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
+
+  &__time {
+    grid-area: time;
+    align-self: end;
+    justify-self: end;
+
+    opacity: 0.3;
+  }
+
+  &__reply {
+    border: none;
+    background: transparent;
+
+    color: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+  }
+
+  &__reply-form {
+    z-index: 1000;
+    margin-top: 0.5rem;
+    margin-right: 2rem;
+
+    overflow: hidden;
+    display: flex;
+
+    background: #555;
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.3);
+    animation: appear 0.5s;
+
+    > input {
+      padding: 0.5rem 1rem;
+
+      color: #fff;
+      font-size: 1rem;
+
+      background: transparent;
+      border: none;
+      border-radius: 0.5rem 0 0 0.5rem;
+    }
+
+    > button {
+      font-size: 0.9rem;
+      padding: 0 1rem;
+      background: rgba(255, 255, 255, 0.03);
+
+      &:hover {
+        background: rgba(255, 255, 255, 0.05);
+      }
+    }
+
+    & + .message {
+      margin-top: -0.1rem;
+    }
+  }
+
+  &:hover {
+    .message__tooltip__like,
+    .message__tooltip__dislike {
+      display: block;
+    }
+  }
+
+  &__tooltip {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translate(-100%, -50%);
+
+    padding: 0 0.25rem 0 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    &__like,
+    &__dislike {
+      width: fit-content;
+      display: none;
+
+      padding: 0.25rem;
+      line-height: 0.8rem;
+
+      opacity: 0.4;
+      color: #fff;
+      cursor: pointer;
+      background: none;
+      border: none;
+
+      &:hover {
+        opacity: 1;
+      }
+    }
+
+    &__like {
+      filter: hue-rotate(-80deg);
+    }
+
+    &__dislike {
+      filter: hue-rotate(100deg);
+      margin-top: 0.25rem;
+    }
+
+    &--liked,
+    &--disliked {
+      .message__tooltip__like,
+      .message__tooltip__dislike {
+        display: block;
+      }
+    }
+
+    &--liked .message__tooltip__like,
+    &--disliked .message__tooltip__dislike {
+      opacity: 1;
+    }
+  }
+
+  &--reply {
+    color: rgba(255, 255, 255, 0.8);
+    background: #555;
+  }
+}
+
+@keyframes appear {
+  from {
+    transform: translateX(10%);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}

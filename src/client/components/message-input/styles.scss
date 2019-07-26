@@ -1,0 +1,61 @@
+.message-input {
+  z-index: 500;
+  height: 4rem;
+
+  padding: 0;
+
+  display: flex;
+  align-items: center;
+
+  background: #444;
+
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.2);
+
+  &__field,
+  &__send {
+    height: 100%;
+    padding: 0 2rem;
+
+    font-size: 1rem;
+
+    border: none;
+
+    &[disabled] {
+      animation: blinking 0.5s 0.5s infinite;
+    }
+  }
+
+  &__field {
+    width: 100%;
+
+    color: #fff;
+
+    background: transparent;
+  }
+
+  &__send {
+    color: rgba(255, 255, 255, 0.5);
+
+    background: rgba(255, 255, 255, 0.02);
+    cursor: pointer;
+
+    &:hover {
+      color: rgba(255, 255, 255, 0.6);
+      background: rgba(255, 255, 255, 0.03);
+    }
+  }
+}
+
+@keyframes blinking {
+  0% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.5;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}

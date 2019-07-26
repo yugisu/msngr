@@ -1,0 +1,24 @@
+.app-header {
+  height: 0rem;
+
+  padding: 0 6rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  &__logo {
+    margin-top: 3rem;
+    width: 4rem;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    color: #fff;
+    font-size: 2rem;
+    font-family: 'Permanent Marker', cursive;
+
+    user-select: none;
+    text-shadow: 1px 1px violet, -1px -1px cyan;
+  }
+}

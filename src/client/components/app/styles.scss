@@ -1,0 +1,29 @@
+.app {
+  min-height: 100vh;
+
+  display: grid;
+  grid:
+    'header' auto
+    'body' 1fr /
+    100%;
+
+  background: linear-gradient(to top, rgb(88, 51, 88), black);
+
+  &-body {
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 2rem 20vw;
+
+    @media screen and (max-width: 900px) {
+      padding: 2rem 5rem;
+    }
+
+    @media screen and (max-width: 700px) {
+      padding: 2rem;
+    }
+  }
+}
