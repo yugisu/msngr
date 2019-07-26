@@ -10,13 +10,13 @@ type Args = {
 };
 
 export function useMessages(args?: Args) {
-  const { data, loading, error, subscribeToMore, fetchMore } = useQuery<{
+  const { data, loading, error, subscribeToMore, fetchMore, refetch } = useQuery<{
     messages: IMessages;
   }>(GET_MESSAGES, args ? { variables: { filter: args.filter } } : undefined);
 
   subscribeToMore<{ message: IMessage }>({
     document: MESSAGES_SUBSCRIPTION,
-    updateQuery: (prev, { subscriptionData }) => {
+    updateQuery: (prev, { subscriptionData, variables }) => {
       if (!subscriptionData.data) return prev;
       const { message } = subscriptionData.data;
 
@@ -42,20 +42,25 @@ export function useMessages(args?: Args) {
         };
 
       if (prev.messages.items) {
-        return {
-          messages: {
-            __typename: prev.messages.__typename,
-            items: [message, ...prev.messages.items],
-            count: prev.messages.count + 1,
-          },
-        };
+        const shouldBeAdded =
+          variables && variables.filter ? message.body.includes(variables.filter) : true;
+
+        if (shouldBeAdded) {
+          return {
+            messages: {
+              __typename: prev.messages.__typename,
+              items: [message, ...prev.messages.items],
+              count: prev.messages.count + 1,
+            },
+          };
+        }
       }
       return prev;
     },
   });
 
   const fetchMoreMessages = () => {
-    if (data && data.messages.items) {
+    if (data && data.messages.items && data.messages.items.length) {
       const edgeMessageId = data.messages.items[data.messages.items.length - 1].id;
 
       fetchMore({
@@ -78,5 +83,5 @@ export function useMessages(args?: Args) {
     }
   };
 
-  return { data, loading, error, fetchMoreMessages };
+  return { data, loading, error, fetchMoreMessages, refetch };
 }

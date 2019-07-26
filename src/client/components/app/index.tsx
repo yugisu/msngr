@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { AppHeader } from 'client/components/app-header';
+import { AppHeader } from './app-header';
 import { Chat } from 'client/components/chat';
 
 import './styles.scss';

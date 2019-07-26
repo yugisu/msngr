@@ -14,7 +14,7 @@ export const Query: Res['Query'] = {
     });
 
     const count = await ctx.prisma
-      .messagesConnection()
+      .messagesConnection({ where })
       .aggregate()
       .count();
 

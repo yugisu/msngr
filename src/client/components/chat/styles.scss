@@ -13,17 +13,4 @@
   color: #fff;
   background: #333;
   box-shadow: 0 7px 15px rgba(0, 0, 0, 0.3);
-
-  &__header {
-    z-index: 1000;
-    height: 3rem;
-
-    padding: 0 2rem;
-    display: flex;
-    align-items: center;
-
-    color: rgba(255, 255, 255, 0.8);
-    background: #555;
-    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.2);
-  }
 }

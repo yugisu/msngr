@@ -1,0 +1,30 @@
+.chat-header {
+  z-index: 1000;
+  height: 3rem;
+
+  padding-left: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  color: rgba(255, 255, 255, 0.8);
+  background: #555;
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.2);
+
+  label {
+    height: 100%;
+    color: rgba(0, 0, 0, 0.2);
+  }
+
+  input {
+    height: 100%;
+
+    padding: 0 1rem;
+
+    color: #fff;
+    font-size: 0.9rem;
+
+    background: transparent;
+    border: none;
+  }
+}

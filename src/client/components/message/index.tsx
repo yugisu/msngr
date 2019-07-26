@@ -41,8 +41,6 @@ export function Message({ message }: Props) {
   const onSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
-    console.log('Trying to submit:', replyForm.body);
-
     if (replyForm.body) {
       postReply({ variables: { messageId: message.id, body: replyForm.body } });
       setReplyForm({ show: false, body: '' });
