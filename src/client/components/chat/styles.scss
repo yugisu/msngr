@@ -1,6 +1,7 @@
 .chat {
   height: calc(100vh - 7rem);
   width: 100%;
+  min-width: 24rem;
 
   display: grid;
   grid:
@@ -11,7 +12,7 @@
 
   color: #fff;
   background: #333;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 7px 15px rgba(0, 0, 0, 0.3);
 
   &__header {
     z-index: 1000;

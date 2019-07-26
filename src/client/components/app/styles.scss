@@ -17,5 +17,13 @@
     align-items: center;
 
     padding: 2rem 20vw;
+
+    @media screen and (max-width: 900px) {
+      padding: 2rem 5rem;
+    }
+
+    @media screen and (max-width: 700px) {
+      padding: 2rem;
+    }
   }
 }
