@@ -1,4 +1,5 @@
 .message {
+  position: relative;
   width: fit-content;
 
   padding: 0.5rem;
@@ -83,6 +84,59 @@
 
     & + .message {
       margin-top: -0.1rem;
+    }
+  }
+
+  &:hover {
+    .message__tooltip__like,
+    .message__tooltip__dislike {
+      display: block;
+    }
+  }
+
+  &__tooltip {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translate(-100%, -50%);
+
+    padding: 0 0.25rem 0 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    &__like,
+    &__dislike {
+      width: fit-content;
+      display: none;
+
+      padding: 0.25rem;
+      line-height: 0.8rem;
+
+      opacity: 0.6;
+      color: #fff;
+      cursor: pointer;
+      background: none;
+      border: none;
+
+      &:hover {
+        opacity: 1;
+      }
+    }
+
+    &__like {
+      filter: hue-rotate(-80deg);
+    }
+
+    &__dislike {
+      filter: hue-rotate(100deg);
+      margin-top: 0.25rem;
+    }
+
+    &--liked .message__tooltip__like,
+    &--disliked .message__tooltip__dislike {
+      display: block;
+      opacity: 1;
     }
   }
 

@@ -7,25 +7,15 @@ import { POST_REPLY } from 'client/queries/post-reply.mutation';
 
 import './styles.scss';
 
-type BaseProps = {
-  message: Omit<IMessage, 'replies' | '__typename' | 'updatedAt'>;
-};
-
-function MessageBase({ message }: BaseProps) {
-  return (
-    <>
-      <h4 className='message__name'>#{message.id.slice(-10)}</h4>
-      <p className='message__body'>{message.body}</p>
-      <h6 className='message__time'>{moment(message.createdAt).format('hh:mm a')}</h6>
-    </>
-  );
-}
-
 type Props = {
   message: IMessage;
+  liked?: boolean;
+  disliked?: boolean;
+  onLike: () => void;
+  onDislike: () => void;
 };
 
-export function Message({ message }: Props) {
+export function Message({ message, liked, disliked, onLike, onDislike }: Props) {
   const [replyForm, setReplyForm] = useState({ show: false, body: '' });
   const [postReply] = useMutation(POST_REPLY);
 
@@ -78,7 +68,38 @@ export function Message({ message }: Props) {
         <button className='message__reply' onClick={toggleReply}>
           {replyForm.show ? 'Close reply' : 'Reply'}
         </button>
+        <div
+          className={`message__tooltip ${(liked || disliked) &&
+            `message__tooltip--${liked ? 'liked' : disliked ? 'disliked' : ''}`}`}
+        >
+          <button className='message__tooltip__like' onClick={onLike}>
+            <span role='img' aria-hidden>
+              👍
+            </span>{' '}
+            {message.likes || null}
+          </button>
+          <button className='message__tooltip__dislike' onClick={onDislike}>
+            <span role='img' aria-hidden>
+              👎
+            </span>{' '}
+            {message.dislikes || null}
+          </button>
+        </div>
       </div>
+    </>
+  );
+}
+
+type BaseProps = {
+  message: Omit<IMessage, 'replies' | '__typename' | 'updatedAt'>;
+};
+
+function MessageBase({ message }: BaseProps) {
+  return (
+    <>
+      <h4 className='message__name'>#{message.id.slice(-10)}</h4>
+      <p className='message__body'>{message.body}</p>
+      <h6 className='message__time'>{moment(message.createdAt).format('hh:mm a')}</h6>
     </>
   );
 }

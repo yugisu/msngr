@@ -53,7 +53,9 @@ export function Chat() {
           />
         </label>
       </ChatHeader>
+
       <MessageInput />
+
       {loading ? (
         <div className='messages'>
           <div>

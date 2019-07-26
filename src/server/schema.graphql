@@ -14,6 +14,9 @@ type Mutation {
   postMessage(body: String!): Message
   postReply(messageId: ID!, body: String!): Reply
   updateMessage(messageId: ID!): Message
+
+  likeMessage(messageId: ID!, amount: Int!): Message
+  dislikeMessage(messageId: ID!, amount: Int!): Message
 }
 
 type Subscription {

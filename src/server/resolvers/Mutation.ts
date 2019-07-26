@@ -1,13 +1,13 @@
 import { Res } from 'types';
 
 export const Mutation: Res['Mutation'] = {
-  postMessage: async (parent, args, { prisma }) => {
+  postMessage: async (_, args, { prisma }) => {
     const newMessage = await prisma.createMessage({ body: args.body });
 
     return newMessage;
   },
 
-  postReply: async (parent, args, { prisma }) => {
+  postReply: async (_, args, { prisma }) => {
     const messageExists = await prisma.$exists.message({ id: args.messageId });
 
     if (!messageExists) {
@@ -27,5 +27,29 @@ export const Mutation: Res['Mutation'] = {
     });
 
     return mes;
+  },
+
+  likeMessage: async (_, args, { prisma }) => {
+    const message = await prisma.message({ id: args.messageId });
+
+    if (!message) throw new Error(`Message with id ${args.messageId} does not exist`);
+
+    const result = await prisma.updateMessage({
+      where: { id: args.messageId },
+      data: { likes: message.likes + args.amount },
+    });
+    return result;
+  },
+
+  dislikeMessage: async (_, args, { prisma }) => {
+    const message = await prisma.message({ id: args.messageId });
+
+    if (!message) throw new Error(`Message with id ${args.messageId} does not exist`);
+
+    const result = await prisma.updateMessage({
+      where: { id: args.messageId },
+      data: { dislikes: message.dislikes + args.amount },
+    });
+    return result;
   },
 };

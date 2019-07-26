@@ -1,4 +1,4 @@
-endpoint: https://eu1.prisma.sh/dmytrii-puzyr/bsa-graphql-msngr/dev
+endpoint: https://eu1.prisma.sh/dmytrii-puzyr/msngr/dev
 datamodel: datamodel.prisma
 
 generate:
