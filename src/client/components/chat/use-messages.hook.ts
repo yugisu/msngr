@@ -68,7 +68,7 @@ export function useMessages(args?: Args) {
         updateQuery: (prev, { fetchMoreResult }) => {
           if (!fetchMoreResult) return prev;
 
-          if (prev.messages.items && fetchMoreResult.messages.items) {
+          if (prev && prev.messages.items && fetchMoreResult.messages.items) {
             return {
               messages: {
                 ...prev.messages,

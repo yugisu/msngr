@@ -6,6 +6,7 @@ generates:
       - typescript
       - typescript-operations
       - typescript-resolvers
+
   ./src/client/generated/ql-types.tsx:
     plugins:
       - typescript
@@ -13,3 +14,4 @@ generates:
       - typescript-react-apollo
     config:
       typesPrefix: I
+      enumsAsTypes: true

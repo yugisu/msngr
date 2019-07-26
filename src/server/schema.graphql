@@ -1,7 +1,13 @@
 scalar DateTime
 
+enum MessageOrdering {
+  createdAt_DESC
+  likes_DESC
+  dislikes_DESC
+}
+
 type Query {
-  messages(filter: String, first: Int, after: ID): Messages!
+  messages(filter: String, orderBy: MessageOrdering, first: Int, after: ID): Messages!
   replies: [Reply!]
 }
 

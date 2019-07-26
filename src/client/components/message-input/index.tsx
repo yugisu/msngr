@@ -22,8 +22,10 @@ export function MessageInput() {
   const onSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
-    sendMessage({ variables: { body: text } });
-    setText('');
+    if (text) {
+      sendMessage({ variables: { body: text } });
+      setText('');
+    }
   };
 
   return (

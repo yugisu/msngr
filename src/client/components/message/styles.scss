@@ -113,7 +113,7 @@
       padding: 0.25rem;
       line-height: 0.8rem;
 
-      opacity: 0.6;
+      opacity: 0.4;
       color: #fff;
       cursor: pointer;
       background: none;
@@ -133,9 +133,16 @@
       margin-top: 0.25rem;
     }
 
+    &--liked,
+    &--disliked {
+      .message__tooltip__like,
+      .message__tooltip__dislike {
+        display: block;
+      }
+    }
+
     &--liked .message__tooltip__like,
     &--disliked .message__tooltip__dislike {
-      display: block;
       opacity: 1;
     }
   }
